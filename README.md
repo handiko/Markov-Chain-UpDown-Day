@@ -146,3 +146,30 @@ The code snippet that runs the calculation is actually very similar to the previ
 The rest of the code is very much the same. The result of the code being run on **USDJPY D1 from 2019-01-01**:
 
 ![](./2-candle-results.png)
+
+As a result, we get the transition probabilities:
+* $P_{UU \to U} = 0.55$
+* $P_{UU \to D} = 0.45$
+* $P_{UD \to U} = 0.56$
+* $P_{UD \to D} = 0.44$
+* $P_{DU \to U} = 0.56$
+* $P_{DU \to D} = 0.44$
+* $P_{DD \to U} = 0.57$
+* $P_{DD \to D} = 0.43$
+
+Or in the form of a transition table:
+
+|                     | Next day is U | Nex day is D |
+|---------------------|---------------|--------------|
+| Previuos days is UU | 0.55          | 0.45         |
+| Previuos days is UD | 0.56          | 0.44         |
+| Previuos days is DU | 0.56          | 0.44         |
+| Previuos days is DD | 0.57          | 0.43         |
+
+And it fulfills the conditions:
+* $P_{UU \to U} + P_{UU \to D} = 1$
+* $P_{UD \to U} + P_{UD \to D} = 1$
+* $P_{DU \to U} + P_{DU \to D} = 1$
+* $P_{DD \to U} + P_{DD \to D} = 1$
+
+---
