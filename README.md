@@ -43,7 +43,7 @@ By getting the insight into these probabilities, we actually learn quite a bit a
 
 ---
 
-## MQL5 Code to Extract the Transition Probabilities
+### MQL5 Code to Extract the Transition Probabilities
 In the folder "Markov Chain Study", I included a simple MQL5 code "_Candle Pattern Study - 1 Candle.mq5_" to "extract" the transition matrix from a specific forex pair. The code can actually run on any market as long as it is listed on the MetaTrader platform.
 
 The code snippet that actually runs the calculation:
@@ -102,13 +102,13 @@ And it fulfills the conditions:
 
 ---
 
-## Higher Order Markov Chain and MQL5 Code to Extract the Probabilites
+## Higher Order Markov Chain
 
 A higher-order Markov chain is a probabilistic model where the future state depends not just on the current state, but on a sequence of previous states. While a standard (first-order) Markov chain considers only the most recent state, a higher-order chain accounts for a longer memory. This allows it to capture more complex dependencies and patterns within a sequence of the price data.
 
 ### Understanding the States
 
-In this example, the "elements" can be thought of as a sequence of trading days, each with two possible states: U (up) and D (down) days. A standard first-order Markov chain would model the probability of the next day (U or D) based solely on the current state. For example:
+In the previous example, the "elements" can be thought of as a sequence of trading days, each with two possible states: U (up) and D (down) days. A standard first-order Markov chain would model the probability of the next day (U or D) based solely on the current state. For example:
 
 * $P_{U \to U}$: The probability of an Up day being followed by an Up day.
 * $P_{U \to D}$: The probability of an Up day being followed by a Down day.
@@ -132,17 +132,15 @@ The core of a Markov chain is its transition probability matrix, which contains 
 
 The sum of probabilities for each history must equal 1. For example, $P_{UU \to U} + P_{UU \to D} = 1$
 
-This approach is powerful because it can model more nuanced behaviors. For instance, the probability of the next day being an Up day might be very different if the previous history was UU compared to UD. A first-order chain would miss this distinction, treating both histories simply as "the current day is U."
+### MQL5 Code to Extract the Transition Probabilities from Higher Order Markov Chain
+In the folder "Markov Chain Study", I included a simple MQL5 code "_Candle Pattern Study - 2 Candle.mq5_" to "extract" the transition matrix from a specific forex pair. The code can actually run on any market as long as it is listed on the MetaTrader platform.
 
-Simple Example: A Walk Through
+The code snippet that runs the calculation is actually very similar to the previous one. It only needed to change the defines as follows:
 
-Let's imagine we are modeling a sequence of coin flips where U = heads and D = tails. A first-order chain might suggest that the chance of getting a heads after a heads is 50%.
+```mql5
+#define PREVIOUS_CANDLE 2
+#define CANDLE (PREVIOUS_CANDLE+1)
+#define COMBINATIONS 8
+```
 
-However, a second-order chain could reveal a different pattern. For example, let's say after two heads in a row (UU), the coin is much more likely to land on tails. The probabilities might look like this:
-History	P(next is U)	P(next is D)
-UU	0.2	0.8
-UD	0.7	0.3
-DU	0.6	0.4
-DD	0.1	0.9
-
-In this hypothetical example, the state UU has a high probability of transitioning to a D, reflecting a tendency for the sequence to alternate after two identical outcomes. Similarly, the state UD has a high probability of transitioning to a U, suggesting a pattern of alternating. These kinds of context-dependent patterns cannot be captured by a simple first-order Markov chain.
+The rest of the code is very much the same. The result of the code being run on **USDJPY D1 from 2019-01-01**:
