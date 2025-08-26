@@ -144,3 +144,5 @@ The code snippet that runs the calculation is actually very similar to the previ
 ```
 
 The rest of the code is very much the same. The result of the code being run on **USDJPY D1 from 2019-01-01**:
+
+![](./2-candle-results.png)
