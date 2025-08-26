@@ -38,3 +38,5 @@ Since the following day must be either an Up or a Down day, then the probabiliti
 
 * $P_{U \to U} + P_{U \to D} = 1$
 * $P_{D \to U} + P_{D \to D} = 1$
+
+By getting the insight into these probabilities, we actually learn quite a bit about the specific market.
