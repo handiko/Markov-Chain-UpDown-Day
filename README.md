@@ -33,3 +33,8 @@ p_{\text{UU}} & p_{\text{UD}} \\
 p_{\text{DU}} & p_{\text{DD}} 
 \end{pmatrix}
 $$
+
+Since the following day must be either an Up or a Down day, then the probabilities of transitioning from a specific state must sum to 1.
+
+* $P_{U \to U} + P_{U \to D} = 1$
+* $P_{D \to U} + P_{D \to D} = 1$
