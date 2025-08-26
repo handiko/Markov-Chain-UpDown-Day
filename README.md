@@ -173,3 +173,32 @@ And it fulfills the conditions:
 * $P_{DD \to U} + P_{DD \to D} = 1$
 
 ---
+
+### Last Example: 3-Previous Days Markov Chain
+The transition probabilities would look like this:
+* $P_{UUU \to U}$
+* $P_{UUU \to D}$
+* $P_{UUD \to U}$
+* $P_{UUD \to D}$
+* $P_{UDU \to U}$
+* $P_{UDU \to D}$
+* $P_{UDD \to U}$
+* $P_{UDD \to D}$
+* $P_{DUU \to U}$
+* $P_{DUU \to D}$
+* $P_{DUD \to U}$
+* $P_{DUD \to D}$
+* $P_{DDU \to U}$
+* $P_{DDU \to D}$
+* $P_{DDD \to U}$
+* $P_{DDD \to D}$
+
+The code snippet that runs the calculation is also very similar. It only needed to change the defines as follows:
+
+```mql5
+#define PREVIOUS_CANDLE 3
+#define CANDLE (PREVIOUS_CANDLE+1)
+#define COMBINATIONS 16
+```
+
+The rest of the code is very much the same. The result of the code being run on **USDJPY D1 from 2019-01-01**:
