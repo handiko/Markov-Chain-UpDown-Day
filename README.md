@@ -1,5 +1,6 @@
 # Using Markov Chain to Analyze a Forex Pair
 -- Part 2 --
+
 Previous Section (part 1): [Basic Understanding of Markov Chain in Financial Market](https://github.com/handiko/Markov-Chain-In-Financial-Market/blob/main/README.md)
 
 Using the theory from the previous section, we are now trying to analyze a forex pair to have a better understanding, or at least a first glimpse of its behavior.
