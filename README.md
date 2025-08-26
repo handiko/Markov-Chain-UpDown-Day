@@ -44,8 +44,6 @@ Since the following day must be either an Up or a Down day, then the probabiliti
 
 By getting the insight into these probabilities, we actually learn quite a bit about the specific market.
 
----
-
 ### MQL5 Code to Extract the Transition Probabilities
 In the folder "Markov Chain Study", I included a simple MQL5 code "_Candle Pattern Study - 1 Candle.mq5_" to "extract" the transition matrix from a specific forex pair. The code can actually run on any market as long as it is listed on the MetaTrader platform.
 
@@ -174,8 +172,6 @@ And it fulfills the conditions:
 * $P_{UD \to U} + P_{UD \to D} = 1$
 * $P_{DU \to U} + P_{DU \to D} = 1$
 * $P_{DD \to U} + P_{DD \to D} = 1$
-
----
 
 ### Last Example: 3-Previous Days Markov Chain
 The transition probabilities would look like this:
