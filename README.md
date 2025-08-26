@@ -202,3 +202,20 @@ The code snippet that runs the calculation is also very similar. It only needed 
 ```
 
 The rest of the code is very much the same. The result of the code being run on **USDJPY D1 from 2019-01-01**:
+
+![](./3-candle-results.png)
+
+As a result, we get the transition table:
+
+|                      | Next day is U | Nex day is D |
+|----------------------|---------------|--------------|
+| Previuos days is UUU | 0.53          | 0.47         |
+| Previuos days is UUD | 0.58          | 0.42         |
+| Previuos days is UDU | 0.58          | 0.42         |
+| Previous days is UDD | 0.53          | 0.47         |
+| Previous days is DUU | 0.57          | 0.43         |
+| Previous days is DUD | 0.54          | 0.46         |
+| Previous days is DDU | 0.52          | 0.48         |
+| Previous days is DDD | 0.62          | 0.38         |
+
+---
