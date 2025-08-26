@@ -84,3 +84,4 @@ void OnTick() {
      }
 }
 ```
+The code basically takes the most recent two candles. If the code runs on a daily timeframe, then it takes today's and yesterday's candles. If the candle's open is lower than its close, then it was a down day. Otherwise, it was an up day. A sequence of each evaluation takes two candles, count the occurrence of each sequence, and store it in the pattern struct variable. After it evaluates the entire price chart, the code counts the probability of the occurrence of each sequence based on the transition matrix stated earlier.
