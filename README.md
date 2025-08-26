@@ -17,4 +17,4 @@ $D \to D$
 
 There are $N^{M}$ possible transitions for $N$-states that precede it and $M$-states that follow. Since $N = 2$, for either $U$ or $D$, and $M = 2$, for either $U$ or $D$ as well, 4 transitions could occur for a 1-previous up-or-down day related to the next day's state.
 
-![]()
+![](./2-states_markov_chain.png)
