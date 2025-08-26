@@ -7,7 +7,7 @@ Using the theory from the previous section, we are now trying to analyze a forex
 The goal here is to have an initial insight that we could then use to develop a trading strategy.
 
 ## Previous Up/Down Day and Its Relation to the Next Day's State
-This chapter's goal is simple: **What are the transition probabilities of a previous up/down day to the next day's state?** Either it more probable to be an up day or a down day?
+This chapter's goal is simple, to answer the following questions: **What are the transition probabilities of a previous up/down day to the next day's state?** Either it more probable to be an up day or a down day?
 Let's say the up day is **U** and the down day is **D**. The full list of transitions that could happen is as follows:
 
 $U \to U$
