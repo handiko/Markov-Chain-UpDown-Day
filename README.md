@@ -40,3 +40,47 @@ Since the following day must be either an Up or a Down day, then the probabiliti
 * $P_{D \to U} + P_{D \to D} = 1$
 
 By getting the insight into these probabilities, we actually learn quite a bit about the specific market.
+
+---
+
+## MQL5 Code to Extract the Transition Matrix
+In the folder "Markov Chain Study", I included a simple MQL5 code "_Candle Pattern Study - 1 Candle.mq5_" to "extract" the transition matrix from a specific forex pair. The code can actually run on any market as long as it is listed on the MetaTrader platform.
+
+The code snippet that actually run the calculation:
+```
+#define PREVIOUS_CANDLE 1
+#define CANDLE (PREVIOUS_CANDLE+1)
+#define COMBINATIONS 4
+
+struct Pattern {
+     int       count;
+     double    probability;
+};
+
+struct Price {
+     double    o;
+     double    c;
+};
+
+Pattern pattern[COMBINATIONS];
+Price price[CANDLE];
+
+// ..........
+
+void OnTick() {
+     int bars = iBars(_Symbol, InpTimeframe);
+     int patt = 0;
+     if(bars != totalBars) {
+          totalBars = bars;
+
+          for(int i = 0; i < CANDLE; i++) {
+               price[i].o = iOpen(_Symbol, InpTimeframe, CANDLE - i);
+               price[i].c = iClose(_Symbol, InpTimeframe, CANDLE - i);
+
+               patt += ((price[i].o < price[i].c) ? 1 : 0) << (CANDLE - 1 - i);
+          }
+
+          CountPattern(pattern[patt]);
+     }
+}
+```
