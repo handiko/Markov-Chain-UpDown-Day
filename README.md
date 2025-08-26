@@ -86,7 +86,8 @@ void OnTick() {
 ```
 The code basically takes the most recent two candles. If the code runs on a daily timeframe, then it takes today's and yesterday's candles. If the candle's open is lower than its close, then it was a down day. Otherwise, it was an up day. A sequence of each evaluation takes two candles, count the occurrence of each sequence, and store it in the pattern struct variable. After it evaluates the entire price chart, the code counts the probability of the occurrence of each sequence based on the transition matrix stated earlier.
 
-By running the included MQL5 code on USDJPY D1 from 2019-01-01, we get the following results:
+By running the included MQL5 code on **USDJPY D1 from 2019-01-01**, we get the following results:
+
 ![](./1-candle-result.png)
 
 As a result, we get the transition probabilities:
