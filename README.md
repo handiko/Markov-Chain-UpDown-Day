@@ -47,7 +47,7 @@ By getting the insight into these probabilities, we actually learn quite a bit a
 In the folder "Markov Chain Study", I included a simple MQL5 code "_Candle Pattern Study - 1 Candle.mq5_" to "extract" the transition matrix from a specific forex pair. The code can actually run on any market as long as it is listed on the MetaTrader platform.
 
 The code snippet that actually run the calculation:
-```
+```mql5
 #define PREVIOUS_CANDLE 1
 #define CANDLE (PREVIOUS_CANDLE+1)
 #define COMBINATIONS 4
