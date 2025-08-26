@@ -160,7 +160,7 @@ As a result, we get the transition probabilities:
 
 Or in the form of a transition table:
 
-|                     | Next day is U | Nex day is D |
+|                     | Next day is U | Next day is D |
 |---------------------|---------------|--------------|
 | Previuos days is UU | 0.55          | 0.45         |
 | Previuos days is UD | 0.56          | 0.44         |
@@ -208,7 +208,7 @@ The rest of the code is very much the same. The result of the code being run on 
 
 As a result, we get the transition table:
 
-|                      | Next day is U | Nex day is D |
+|                      | Next day is U | Next day is D |
 |----------------------|---------------|--------------|
 | Previuos days is UUU | 0.53          | 0.47         |
 | Previuos days is UUD | 0.58          | 0.42         |
