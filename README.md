@@ -227,3 +227,4 @@ Codes related to this article:
 * [Candle Pattern Study - 3 candle.mq5](https://github.com/handiko/Markov-Chain-UpDown-Day/blob/main/Markov%20Chain%20Study/Candle%20Pattern%20Study%20-%203%20Candle.mq5)
 
 ---
+Next section (part 3): [Using a Markov chain to determine market risk](https://github.com/handiko/Markov-Chain-In-Financial-Market-Risk/blob/main/README.md)
