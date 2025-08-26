@@ -19,7 +19,7 @@ There are $N^{M}$ possible transitions for $N$-states that precede it and $M$-st
 
 ![](./2-states_markov_chain.png)
 
-* $P_{U\toU}$: The probability of an Up day being followed by an Up day.
-* $P_{U\toD}$: The probability of an Up day being followed by a Down day.
-* $P_{D\toU}$: The probability of a Down day being followed by an Up day.
-* $P_{D\toD}$: The probability of a Down day being followed by a Down day.
+* $P_{U \to U}$: The probability of an Up day being followed by an Up day.
+* $P_{U \to D}$: The probability of an Up day being followed by a Down day.
+* $P_{D \to U}$: The probability of a Down day being followed by an Up day.
+* $P_{D \to D}$: The probability of a Down day being followed by a Down day.
