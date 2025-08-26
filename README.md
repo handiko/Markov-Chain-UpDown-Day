@@ -110,31 +110,29 @@ A higher-order Markov chain is a probabilistic model where the future state depe
 
 In this example, the "elements" can be thought of as a sequence of trading days, each with two possible states: U (up) and D (down) days. A standard first-order Markov chain would model the probability of the next day (U or D) based solely on the current state. For example:
 
-* $P_{\text{next day is} U | \text{current day is}U}$
+* $P_{U \to U}$: The probability of an Up day being followed by an Up day.
+* $P_{U \to D}$: The probability of an Up day being followed by a Down day.
+* $P_{D \to U}$: The probability of a Down day being followed by an Up day.
+* $P_{D \to D}$: The probability of a Down day being followed by a Down day.
 
-    P(next state is U | current state is U)
+However, a second-order Markov chain considers the two previous days to determine the probability of the next one. The "states" of this system aren't just U or D; they are pairs of consecutive states, such as UU, UD, DU, and DD.
 
-    P(next state is D | current state is D)
+### Transition Probabilities in a Higher-Order Chain
 
-However, a second-order Markov chain, as you've described, considers the two previous states to determine the probability of the next one. The "states" of this system aren't just U or D; they are pairs of consecutive states, such as UU, UD, DU, and DD.
+The core of a Markov chain is its transition probability matrix, which contains the probabilities of moving from one state to another. In this example, the transitions are based on the two-state history. The transition probabilities would look like this:
 
-Transition Probabilities in a Higher-Order Chain
+* $P_{UU \to U}$: The probability of two Up days being followed by an Up day.
+* $P_{UU \to D}$: The probability of two Up days being followed by a Down day.
+* $P_{UD \to U}$: The probability of an Up day and then a Down day, being followed by an Up day.
+* $P_{UD \to D}$: The probability of an Up day and then a Down day being followed by a Down day.
+* $P_{DU \to U}$: The probability of a Down day then an Up day, being followed by an Up day.
+* $P_{DU \to D}$: The probability of a Down day then an Up day, being followed by a Down day.
+* $P_{DD \to U}$: The probability of two Down days being followed by an Up day.
+* $P_{DD \to D}$: The probability of two Down days being followed by a Down day.
 
-The core of a Markov chain is its transition probability matrix, which contains the probabilities of moving from one state to another. In your second-order example, the transitions are based on the two-state history. The transition probabilities would look like this:
+The sum of probabilities for each history must equal 1. For example, $P_{UU \to U} + P_{UU \to D} = 1$
 
-    P(next state is U | history is UU): The probability that the next element is U, given that the last two elements were U and U.
-
-    P(next state is D | history is UU): The probability that the next element is D, given the last two were U and U.
-
-    P(next state is U | history is UD): The probability that the next element is U, given the last two were U and D.
-
-    P(next state is D | history is UD): The probability that the next element is D, given the last two were U and D.
-
-    And so on for histories DU and DD.
-
-The sum of probabilities for each history must equal 1. For example, P(next is U | UU) + P(next is D | UU) = 1.
-
-This approach is powerful because it can model more nuanced behaviors. For instance, the probability of the next element being U might be very different if the previous history was UU compared to UD. A first-order chain would miss this distinction, treating both histories simply as "the current state is U."
+This approach is powerful because it can model more nuanced behaviors. For instance, the probability of the next day being an Up day might be very different if the previous history was UU compared to UD. A first-order chain would miss this distinction, treating both histories simply as "the current day is U."
 
 Simple Example: A Walk Through
 
