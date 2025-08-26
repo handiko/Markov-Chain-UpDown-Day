@@ -223,7 +223,7 @@ As a result, we get the transition table:
 
 Codes related to this article:
 * [Candle Pattern Study - 1 candle.mq5](https://github.com/handiko/Markov-Chain-UpDown-Day/blob/main/Markov%20Chain%20Study/Candle%20Pattern%20Study%20-%201%20candle.mq5)
-* [Candle Pattern Study - 2 candle.mq5](https://github.com/handiko/Markov-Chain-UpDown-Day/blob/main/Markov%20Chain%20Study/Candle%20Pattern%20Study%20-%202%20candle.mq5)
-* [Candle Pattern Study - 3 candle.mq5](https://github.com/handiko/Markov-Chain-UpDown-Day/blob/main/Markov%20Chain%20Study/Candle%20Pattern%20Study%20-%203%20candle.mq5)
+* [Candle Pattern Study - 2 candle.mq5](https://github.com/handiko/Markov-Chain-UpDown-Day/blob/main/Markov%20Chain%20Study/Candle%20Pattern%20Study%20-%202%20Candle.mq5)
+* [Candle Pattern Study - 3 candle.mq5](https://github.com/handiko/Markov-Chain-UpDown-Day/blob/main/Markov%20Chain%20Study/Candle%20Pattern%20Study%20-%203%20Candle.mq5)
 
 ---
