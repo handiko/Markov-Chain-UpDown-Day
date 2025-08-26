@@ -221,6 +221,10 @@ As a result, we get the transition table:
 | Previous days is DDU | 0.52          | 0.48         |
 | Previous days is DDD | 0.62          | 0.38         |
 
+### Interpreting The Results
+1. Basic interpretation of the table above is that the USDJPY forex pair in the D1 timeframe is quite a bit biased to the "Next day is U". Or in other words, USDJPY in the D1 timeframe is bullish-biased. This is quite interesting, and maybe we are not expecting that! This result is quite understandable, as from 2019-01-01, the USDJPY chart is indeed mostly bullish.
+2. Comparing the results from the 1-previous-day, 2-previous-days, and 3-previous-days probability results, we can see there is an increase in "probability percentage" or "predictive power" for the next day. This could be understood as 1-previous-day prediction has "less power" as it would capture the noise easily, but a larger number of previous days captures a longer underlying pattern that could be more significant for the next day or days.
+
 ---
 
 Codes related to this article:
