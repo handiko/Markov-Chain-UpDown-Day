@@ -8,3 +8,6 @@ This chapter's goal is simple: **What is the transition matrix of a previous up/
 Let's say the up day is **U** and the down day is **D**. The full list of transitions that could happen is as below:
 
 $U \to U$
+$U \to D$
+$D \to U$
+$D \to D$
