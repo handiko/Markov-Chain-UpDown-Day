@@ -227,6 +227,7 @@ As a result, we get the transition table:
 
 A bullish USDJPY chart from 2019-01-01
 ![](./USDJPYDaily.png)
+
 ---
 
 Codes related to this article:
