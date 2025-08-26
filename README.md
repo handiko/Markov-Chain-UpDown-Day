@@ -23,3 +23,13 @@ There are $N^{M}$ possible transitions for $N$-states that precede it and $M$-st
 * $P_{U \to D}$: The probability of an Up day being followed by a Down day.
 * $P_{D \to U}$: The probability of a Down day being followed by an Up day.
 * $P_{D \to D}$: The probability of a Down day being followed by a Down day.
+
+The transition matrix for this chain is:
+
+$$
+P = 
+\begin{pmatrix}
+p_{\text{UU}} & p_{\text{UD}} \\
+p_{\text{DU}} & p_{\text{DD}} 
+\end{pmatrix}
+$$
