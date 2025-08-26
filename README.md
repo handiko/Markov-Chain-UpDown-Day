@@ -104,3 +104,47 @@ And it fulfills the conditions:
 
 ## Higher Order Markov Chain and MQL5 Code to Extract the Probabilites
 
+A higher-order Markov chain is a probabilistic model where the future state depends not just on the current state, but on a sequence of previous states. While a standard (first-order) Markov chain considers only the most recent state, a higher-order chain accounts for a longer memory. This allows it to capture more complex dependencies and patterns within a sequence of the price data.
+
+### Understanding the States
+
+In this example, the "elements" can be thought of as a sequence of trading days, each with two possible states: U (up) and D (down) days. A standard first-order Markov chain would model the probability of the next day (U or D) based solely on the current state. For example:
+
+* $P_{\text{next day is} U | \text{current day is}U}$
+
+    P(next state is U | current state is U)
+
+    P(next state is D | current state is D)
+
+However, a second-order Markov chain, as you've described, considers the two previous states to determine the probability of the next one. The "states" of this system aren't just U or D; they are pairs of consecutive states, such as UU, UD, DU, and DD.
+
+Transition Probabilities in a Higher-Order Chain
+
+The core of a Markov chain is its transition probability matrix, which contains the probabilities of moving from one state to another. In your second-order example, the transitions are based on the two-state history. The transition probabilities would look like this:
+
+    P(next state is U | history is UU): The probability that the next element is U, given that the last two elements were U and U.
+
+    P(next state is D | history is UU): The probability that the next element is D, given the last two were U and U.
+
+    P(next state is U | history is UD): The probability that the next element is U, given the last two were U and D.
+
+    P(next state is D | history is UD): The probability that the next element is D, given the last two were U and D.
+
+    And so on for histories DU and DD.
+
+The sum of probabilities for each history must equal 1. For example, P(next is U | UU) + P(next is D | UU) = 1.
+
+This approach is powerful because it can model more nuanced behaviors. For instance, the probability of the next element being U might be very different if the previous history was UU compared to UD. A first-order chain would miss this distinction, treating both histories simply as "the current state is U."
+
+Simple Example: A Walk Through
+
+Let's imagine we are modeling a sequence of coin flips where U = heads and D = tails. A first-order chain might suggest that the chance of getting a heads after a heads is 50%.
+
+However, a second-order chain could reveal a different pattern. For example, let's say after two heads in a row (UU), the coin is much more likely to land on tails. The probabilities might look like this:
+History	P(next is U)	P(next is D)
+UU	0.2	0.8
+UD	0.7	0.3
+DU	0.6	0.4
+DD	0.1	0.9
+
+In this hypothetical example, the state UU has a high probability of transitioning to a D, reflecting a tendency for the sequence to alternate after two identical outcomes. Similarly, the state UD has a high probability of transitioning to a U, suggesting a pattern of alternating. These kinds of context-dependent patterns cannot be captured by a simple first-order Markov chain.
