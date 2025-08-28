@@ -215,7 +215,7 @@ As a result, we get the transition table:
 | Previous days is DDD | 0.62          | 0.38         |
 
 ### Interpreting The Results
-1. Market Bias: The tables indicate a clear bullish bias for the USDJPY pair on the daily (D1) timeframe. The transition probabilities consistently favor the "Next day is U" (up) column. While this finding might be surprising to some, it aligns with the pair's overall upward trend observed from early 2020, to the present.
+1. Market Bias: The tables indicate a clear bullish bias for the USDJPY pair on the daily (D1) timeframe. The transition probabilities consistently favor the "Next day is U" (up) column. While this finding might be surprising to some, it aligns with the pair's overall upward trend observed from early 2020 to the present.
 2. Predictive Power: A comparison of the 1, 2, and 3-day transition probabilities reveals an increase in predictive power as the number of preceding days considered in the analysis grows. The 1-day model, with its shorter memory, is more susceptible to market noise. In contrast, models that incorporate a longer sequence of prior states (e.g., 2 or 3 days) are better at capturing significant, underlying patterns, which leads to a more robust prediction for the following day. This demonstrates the value of using a higher-order Markov chain to filter out short-term fluctuations and focus on more reliable, long-term trends.
 
 A bullish USDJPY chart from 2019-01-01
