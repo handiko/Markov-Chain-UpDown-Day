@@ -3,12 +3,12 @@
 
 Previous Section (part 1): [Basic Understanding of Markov Chain in Financial Market](https://github.com/handiko/Markov-Chain-In-Financial-Market/blob/main/README.md)
 
-Using the theory from the previous section, we are now trying to analyze a forex pair to have a better understanding, or at least a first glimpse of its behavior.
-The goal here is to have an initial insight that we could then use to develop a trading strategy.
+Based on the theoretical foundation from the previous section, we can now analyze a forex pair to gain an initial understanding of its behavior. The primary goal is to derive insights that can serve as the basis for developing a new trading strategy. This analytical approach provides a valuable first glimpse into the market's underlying dynamics.
 
 ## Previous Up/Down Day and Its Relation to the Next Day's State
-This chapter's goal is simple, to answer the following questions: **What are the transition probabilities of a previous up/down day to the next day's state?** Either it more probable to be an up day or a down day?
-Let's say the up day is **U** and the down day is **D**. The full list of transitions that could happen is as follows:
+This chapter aims to analyze the transition probabilities of daily market movements. Specifically, we will answer the question: What is the likelihood that an up or down day will be followed by another up or down day?
+
+Using **U** to represent an up day and **D** to represent a down day, the full list of possible transitions is:
 
 $U \to U$
 
@@ -85,7 +85,7 @@ void OnTick() {
      }
 }
 ```
-The code basically takes the most recent two candles. If the code runs on a daily timeframe, then it takes today's and yesterday's candles. If the candle's open is lower than its close, then it was a down day. Otherwise, it was an up day. A sequence of each evaluation takes two candles, count the occurrence of each sequence, and store it in the pattern struct variable. After it evaluates the entire price chart, the code counts the probability of the occurrence of each sequence based on the transition matrix stated earlier.
+The code analyzes the two most recent candles—for example, today's and yesterday's on a daily timeframe to determine market direction. If a candle's open price is lower than its close, it's classified as a down day; otherwise, it's an up day. The code then evaluates these two-candle sequences, tallies each sequence's occurrence, and stores the data in the pattern struct variable. Once the entire price chart is processed, it calculates the transition probability for each sequence based on the predefined transition matrix.
 
 By running the included MQL5 code on **USDJPY D1 from 2019-01-01**, we get the following results:
 
@@ -104,22 +104,19 @@ And it fulfills the conditions:
 ---
 
 ## Higher Order Markov Chain
-
-A higher-order Markov chain is a probabilistic model where the future state depends not just on the current state, but on a sequence of previous states. While a standard (first-order) Markov chain considers only the most recent state, a higher-order chain accounts for a longer memory. This allows it to capture more complex dependencies and patterns within a sequence of the price data.
+Higher-order Markov chain is a probabilistic model where the future state depends on a sequence of preceding states, not just the single most recent one. While a first-order Markov chain has a memory of only one step, a higher-order chain accounts for a longer memory. This capability allows it to capture more complex dependencies and intricate patterns within a sequence of price data.
 
 ### Understanding the States
-
-In the previous example, the "elements" can be thought of as a sequence of trading days, each with two possible states: U (up) and D (down) days. A standard first-order Markov chain would model the probability of the next day (U or D) based solely on the current state. For example:
+In the previous example, each element is a sequence of trading days, each with one of two states: up (U) or down (D). A standard first-order Markov chain would model the probability of the next day's state (U or D) based exclusively on the current day's state. For example:
 
 * $P_{U \to U}$: The probability of an Up day being followed by an Up day.
 * $P_{U \to D}$: The probability of an Up day being followed by a Down day.
 * $P_{D \to U}$: The probability of a Down day being followed by an Up day.
 * $P_{D \to D}$: The probability of a Down day being followed by a Down day.
 
-However, a second-order Markov chain considers the two previous days to determine the probability of the next one. The "states" of this system aren't just U or D; they are pairs of consecutive states, such as UU, UD, DU, and DD.
+A second-order Markov chain, however, uses the two previous days to determine the probability of the next one. In this model, the states are no longer singular (U or D) but are instead pairs of consecutive states, such as UU, UD, DU, and DD.
 
 ### Transition Probabilities in a Higher-Order Chain
-
 The core of a Markov chain is its transition probability matrix, which contains the probabilities of moving from one state to another. In this example, the transitions are based on the two-state history. The transition probabilities would look like this:
 
 * $P_{UU \to U}$: The probability of two Up days being followed by an Up day.
@@ -218,8 +215,8 @@ As a result, we get the transition table:
 | Previous days is DDD | 0.62          | 0.38         |
 
 ### Interpreting The Results
-1. Basic interpretation of the table above is that the USDJPY forex pair in the D1 timeframe is quite a bit biased to the "Next day is U". Or in other words, USDJPY in the D1 timeframe is bullish-biased. This is quite interesting, and maybe we are not expecting that! This result is quite understandable, as from 2019-01-01, the USDJPY chart is indeed mostly bullish.
-2. Comparing the results from the 1-previous-day, 2-previous-days, and 3-previous-days probability results, we can see there is an increase in "probability percentage" or "predictive power" for the next day. This could be understood as 1-previous-day prediction has "less power" as it would capture the noise easily, but a larger number of previous days captures a longer underlying pattern that could be more significant for the next day or days.
+1. Market Bias: The tables indicate a clear bullish bias for the USDJPY pair on the daily (D1) timeframe. The transition probabilities consistently favor the "Next day is U" (up) column. While this finding might be surprising to some, it aligns with the pair's overall upward trend observed from January 1, 2019, to the present.
+2. Predictive Power: A comparison of the 1, 2, and 3-day transition probabilities reveals an increase in predictive power as the number of preceding days considered in the analysis grows. The 1-day model, with its shorter memory, is more susceptible to market noise. In contrast, models that incorporate a longer sequence of prior states (e.g., 2 or 3 days) are better at capturing significant, underlying patterns, which leads to a more robust prediction for the following day. This demonstrates the value of using a higher-order Markov chain to filter out short-term fluctuations and focus on more reliable, long-term trends.
 
 A bullish USDJPY chart from 2019-01-01
 ![](./USDJPYDaily.png)
