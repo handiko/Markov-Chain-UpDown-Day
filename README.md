@@ -85,7 +85,7 @@ void OnTick() {
      }
 }
 ```
-The code analyzes the two most recent candles—for example, today's and yesterday's on a daily timeframe to determine market direction. If a candle's open price is lower than its close, it's classified as a down day; otherwise, it's an up day. The code then evaluates these two-candle sequences, tallies each sequence's occurrence, and stores the data in the pattern struct variable. Once the entire price chart is processed, it calculates the transition probability for each sequence based on the predefined transition matrix.
+The code analyzes the two most recent candles—for example, today's and yesterday's on a daily timeframe to determine market direction. If a candle's open price is higher than its close, it's classified as a down day; otherwise, it's an up day. The code then evaluates these two-candle sequences, tallies each sequence's occurrence, and stores the data in the pattern struct variable. Once the entire price chart is processed, it calculates the transition probability for each sequence based on the predefined transition matrix.
 
 By running the included MQL5 code on **USDJPY D1 from 2019-01-01**, we get the following results:
 
